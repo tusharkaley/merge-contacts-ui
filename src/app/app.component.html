@@ -1,0 +1,21 @@
+
+ <div layout="row" layout-xs="column">
+ <div flex="auto">
+<md-toolbar class="header" color="primary" flex="auto">
+<div flex="auto">
+<h2>{{title}}</h2>
+</div>
+<span class="example-spacer"></span>
+<button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> </button>
+</md-toolbar>
+<div flex="auto">
+<router-outlet></router-outlet>
+</div>
+
+</div>
+
+<md-menu #appMenu="mdMenu">
+  <button md-menu-item [routerLink]=" ['./'] "> Home </button>
+  <button md-menu-item [routerLink]=" ['./users/new'] "> Add New User </button>
+
+</md-menu>

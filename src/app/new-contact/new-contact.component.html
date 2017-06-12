@@ -1,0 +1,81 @@
+<div layout="row" class="title-container">
+<div flex>
+<h2>New Contact</h2>    
+</div>
+
+</div>
+
+<form class="example-form">
+
+  <div layout="row">
+    <div flex>
+      <span class="error-message" [hidden]="errormsg">No phone numbers or emails entered</span>
+    </div>
+  </div>
+  <div layout="row">
+    <div flex>
+      <md-input-container class="example-full-width">
+        <textarea mdInput (blur)= "validateElement($event,'firstname')"  placeholder="First Name" [(ngModel)]="firstname" name='firstname'></textarea>
+        <span class="error-message" [hidden]="firstnameError">First Name is invalid</span>
+      </md-input-container>
+    
+    
+    <md-input-container class="example-full-width">
+      <textarea mdInput (blur)= "validateElement($event,'lastname')" placeholder="Last Name" [(ngModel)]="lastname" name='lastname'></textarea>
+      <span class="error-message" [hidden]="lastnameError">Last Name is invalid</span>
+
+    </md-input-container>
+    
+    </div>
+  </div>
+  <div layout="row">
+    <div flex>
+      <md-input-container class="example-full-width" >
+        <textarea mdInput  placeholder="Phone number 1" [(ngModel)]="phone1" name='phone1'></textarea>
+        
+      </md-input-container> 
+    <md-input-container class="example-full-width">
+      <textarea mdInput placeholder="Phone number 2" [(ngModel)]="phone2" name='phone2'></textarea>
+      
+    </md-input-container>
+    <md-input-container class="example-full-width" >
+        <textarea mdInput  placeholder="Phone number 3" [(ngModel)]="phone3" name='phone3'></textarea>
+        
+    </md-input-container>
+    <md-input-container class="example-full-width" >
+        <textarea mdInput  placeholder="Phone number 4" [(ngModel)]="phone4" name='phone4'></textarea>
+        
+    </md-input-container>
+    
+  </div>
+  </div>
+
+  <div layout="row">
+     <div flex>
+      <md-input-container class="example-full-width" >
+        <textarea mdInput  placeholder="Email number 1" [(ngModel)]="email1" name='email1'></textarea>
+        
+      </md-input-container> 
+    <md-input-container class="example-full-width">
+      <textarea mdInput placeholder="Email number 2" [(ngModel)]="email2" name='email2'></textarea>
+      
+    </md-input-container>
+    <md-input-container class="example-full-width" >
+        <textarea mdInput  placeholder="Email number 3" [(ngModel)]="email3" name='email3'></textarea>
+        
+    </md-input-container>
+    <md-input-container class="example-full-width" >
+        <textarea mdInput  placeholder="Email number 4" [(ngModel)]="email4" name='email4'></textarea>
+        
+    </md-input-container>
+    
+  </div>
+  </div>
+ <div layout="row">
+    <div flex class="submit-but">
+            <button [disabled]="buttonStatus" md-raised-button (click)="submitData($event)">Submit</button>
+
+    </div>
+</div>
+
+</form>

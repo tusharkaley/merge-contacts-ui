@@ -1,0 +1,41 @@
+<form class="example-form">
+  <div layout="row">
+    <div flex>
+      <md-input-container class="example-full-width">
+        <textarea mdInput (blur)= "validateElement($event,'firstname')"  placeholder="First Name" [(ngModel)]="firstname" name='firstname'></textarea>
+        <span class="error-message" [hidden]="firstnameError">First Name is invalid</span>
+      </md-input-container>
+    
+    
+    <md-input-container class="example-full-width">
+      <textarea mdInput (blur)= "validateElement($event,'lastname')" placeholder="Last Name" [(ngModel)]="lastname" name='lastname'></textarea>
+      <span class="error-message" [hidden]="lastnameError">Last Name is invalid</span>
+
+    </md-input-container>
+    
+  </div>
+  </div>
+
+  <div layout="row">
+    <div flex>
+      <md-input-container class="example-full-width" >
+        <textarea mdInput (blur)= "validateElement($event,'phone')"  placeholder="Phone" [(ngModel)]="phone" name='phone'></textarea>
+        <span class="error-message" [hidden]="phoneError">Phone Number is invalid</span>
+      </md-input-container>
+      
+    
+    <md-input-container class="example-full-width">
+      <textarea mdInput (blur)= "validateElement($event,'emailid')" placeholder="Email id" [(ngModel)]="emailid" name='emailid'></textarea>
+      <span class="error-message" [hidden]="emailError">Email id is invalid</span>
+    </md-input-container>
+    
+  </div>
+  </div>
+ <div layout="row">
+    <div flex class="submit-but">
+            <button [disabled]="buttonStatus" md-raised-button (click)="submitData($event)">Submit</button>
+
+    </div>
+</div>
+
+</form>

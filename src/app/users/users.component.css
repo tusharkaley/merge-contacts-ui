@@ -1,0 +1,19 @@
+
+
+
+a{
+	font-weight: bold !important;
+	font-style: italic;
+	font-size: 19px;
+}
+
+h2{
+	padding-left: 29px;
+	font-size: 25px;
+}
+
+md-card-content{
+	padding-left: 14px;
+	font-size: 19px;
+}
+

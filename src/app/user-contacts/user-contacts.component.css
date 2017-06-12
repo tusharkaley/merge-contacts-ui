@@ -1,0 +1,22 @@
+
+h2{
+	padding-left: 29px;
+	font-size: 25px;
+}
+
+md-card-content{
+	padding-left: 14px;
+	font-size: 16px;
+}
+
+md-card-title{
+	font-weight: bold !important;
+	font-style: italic;
+	font-size: 25px!important;
+}
+
+title-container{
+	display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

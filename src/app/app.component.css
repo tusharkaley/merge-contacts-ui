@@ -1,0 +1,23 @@
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+body{
+	padding: 0% !important;
+	margin:0px !important;
+    background:lightgray;
+    align-items: center;
+     
+}
+.mat-button{
+	min-width: 30px;
+	padding: 0px;
+}
+
+.mat-card-title{
+	margin-left: 20px !important; 
+}
+.mat-toolbar {
+	padding-left: 14px;
+}

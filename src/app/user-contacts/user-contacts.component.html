@@ -1,0 +1,45 @@
+<div layout="row" class="title-container">
+  <div flex>
+    <h2>User contacts</h2>    
+  </div>
+</div>
+
+<div layout="row">
+
+  <md-card class="example-card">
+    <md-card-header>
+      <a md-raised-button routerLink="./new">Add Contact </a> <!-- <a md-raised-button routerLink="./mergesuggestions">Merge Candidates</a> --> <button md-raised-button (click)="mergeCands()">Merge Candidates</button>
+    </md-card-header>
+
+  </md-card>
+</div>
+<div layout="row">
+  <md-card class="example-card" *ngFor="let data of myData; let i = index">
+    <md-card-header>
+      <div class="user-link">
+        <md-card-title>{{ data.firstname }} {{ data.lastname }}</md-card-title>
+      </div>
+    </md-card-header>
+  
+  
+    <md-card-content>
+      <div layout="row" layout-xs="column" >
+        <div flex>
+          <div *ngFor="let number of data.phonenumbers; let j = index">
+            <p>Phone {{j+1}}: {{number}}</p>
+          </div> 
+        </div>
+        <div flex>
+           <div *ngFor="let email of data.emails; let k = index">
+            <p>Email {{k+1}}: {{email}}</p>
+          </div> 
+        </div>
+      </div>
+        
+    
+
+    </md-card-content>
+  
+  </md-card>
+
+</div>

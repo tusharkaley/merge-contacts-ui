@@ -1,0 +1,16 @@
+<div layout="row" class="title-container">
+  <div flex>
+    <h2>Merge Suggestions</h2>    
+  </div>
+</div>
+
+<md-card class="example-card" *ngFor="let number of myData; let k = index">
+      
+	<md-card-header>
+      <div class="user-link" *ngFor="let output of number; let l = index">
+
+        <p>{{output}} </p>
+      </div>
+    </md-card-header>
+	
+</md-card>

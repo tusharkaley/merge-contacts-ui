@@ -1,0 +1,18 @@
+md-input-container{
+	padding: 18px;
+	width: 200px;
+}
+.submit-but{
+	padding-left: 18px;
+}
+.error-message{
+	color: red;
+	font-style: italic;
+	font-size: 16px;
+	padding-left: 15px;
+}
+
+.title-container{
+	display: flex;
+	padding-left: 15px;
+}

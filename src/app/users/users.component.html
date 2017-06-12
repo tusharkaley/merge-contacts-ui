@@ -1,0 +1,18 @@
+<div layout="row">
+<h2>Users</h2>
+<div flex>
+  	<md-card class="example-card" *ngFor="let data of myData; let i = index">
+
+  <md-card-header>
+  	<div class="user-link">
+    <md-card-title><a md-raised-button routerLink='/users/{{ data.phone }}/contacts'>{{ data.firstname }} {{ data.lastname }}</a></md-card-title>
+    </div>
+  </md-card-header>
+  <md-card-content>
+    <p>Email-id/ids: {{data.email}}</p>
+    <p>Phone number/numbers: {{data.phone}}</p>
+  </md-card-content>
+</md-card>
+</div>
+</div>
+
