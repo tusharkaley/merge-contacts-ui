@@ -21,10 +21,10 @@ import { MergeSuggestionsComponent } from './merge-suggestions/merge-suggestions
 
 const appRoutes: Routes = [
   { path: '', component: UsersComponent },
-  { path: 'users/:phone/contacts', component: UserContactsComponent },
+  { path: 'users/:user_token/contacts', component: UserContactsComponent },
   { path:'users/new', component:NewUserComponent},
-  { path:'users/:phone/contacts/new', component:NewContactComponent},
-  { path:'users/:phone/contacts/mergesuggestions', component:MergeSuggestionsComponent},
+  { path:'users/:user_token/contacts/new', component:NewContactComponent},
+  { path:'users/:user_token/contacts/mergesuggestions', component:MergeSuggestionsComponent},
 
   
 

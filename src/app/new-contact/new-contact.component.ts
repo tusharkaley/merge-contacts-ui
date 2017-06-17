@@ -67,10 +67,10 @@ export class NewContactComponent implements OnInit {
   			this.formData.lname = this.lastname;
 	  		
 	  		this.sub = this.route.params.subscribe(params => {
-		       this.urlParam = params['phone']; // (+) converts string 'phone' to a number
+		       this.urlParam = params['user_token']; // (+) converts string 'phone' to a number
 
 		    });
-		    this.formData.user_phone =  this.urlParam 
+		    this.formData.user_token =  this.urlParam 
 	  		this.getDataService.postData('/users/usercontacts/new',this.formData).subscribe(res => this.myData = res);
 	  		this.router.navigate(['/users/'+this.urlParam+'/contacts']);
   		}
