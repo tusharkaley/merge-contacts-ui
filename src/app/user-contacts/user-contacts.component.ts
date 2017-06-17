@@ -3,6 +3,8 @@ import { GetDataService } from '../get-data.service';
 import {ActivatedRoute} from '@angular/router';
 import {MdDialog} from '@angular/material';
 import {MD_DIALOG_DATA} from '@angular/material';
+import {MdProgressSpinnerModule} from '@angular/material';
+
 
 @Component({
   selector: 'app-user-contacts',
@@ -24,19 +26,37 @@ export class UserContactsComponent implements OnInit {
        this.user_token = params['user_token']; // (+) converts string 'user_token' to a number
 
     });
-  	this.getDataService.getJsonData('/users/usercontacts?user_token='+this.user_token).subscribe(res => this.myData = res);
+  	this.getDataService.getJsonData('/users/usercontacts?user_token='+this.user_token).subscribe(res => this.analyseResponse(res));
   }
 
   mergeCands(){
-    this.getDataService.getJsonData('/users/usercontacts/mergecands?user_token='+this.user_token).subscribe(res => this.merge_candidates = res);
-    setTimeout(() => 
-    {
-      this.openDialog();
-    },
-    400);
+    this.getDataService.getJsonData('/users/usercontacts/mergecands?user_token='+this.user_token).subscribe(res => this.analyseMCResponse(res));
+    
     }
-
+  analyseResponse(response){
+    if(response.status =='success'){
+      this.myData = response.data;
+    }
+    else{
+      alert('Could not get user contacts');
+    }
+    
+  }
+  analyseMCResponse(response){
+     if(response.status =='success'){
+        this.merge_candidates = response.data
+        setTimeout(() => 
+        {
+          this.openDialog();
+        },
+        400);
+      }
+      else{
+        alert('Could not get user contacts');
+      }
+  }
   openDialog() {
+    
     //this.getDataService.getJsonData('/users/usercontacts/mergecands?user_user_token='+this.user_token).subscribe(res => this.merge_candidates = res);
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog ,  {
         data: this.merge_candidates,
@@ -52,9 +72,12 @@ export class UserContactsComponent implements OnInit {
 })
 export class DialogOverviewExampleDialog {
   phone: string;
-
+  loader = false;
   private sub: any;
-
-  constructor(@Inject(MD_DIALOG_DATA) public data: any) { }
+  user_token: string;
+  constructor(@Inject(MD_DIALOG_DATA) public data: any) { 
+    console.log(data.length)
+    this.loader = true;
+  }
 
 }

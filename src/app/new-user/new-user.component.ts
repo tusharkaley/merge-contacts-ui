@@ -38,19 +38,21 @@ export class NewUserComponent implements OnInit {
   		this.formData.lname = this.lastname;
   		this.formData.phone = this.phone;
   		this.formData.email = this.emailid;
-  		this.getDataService.postData('/users/new',this.formData).subscribe(res => this.myData = res);
-  		//console.log(this.myData);
-  		this.router.navigate(['/']);
-  		// if(this.myData['status'] == 'success'){
-  		// 	console.log('success')
-  		// 	this.router.navigate(['/']);
-  		// }
-  		// else{
-  		// 	console.log('error')
-  		// }
+  		this.getDataService.postData('/users/new',this.formData).subscribe(
+  					(result) => {
+   							 this.analyseResponse(result);
+  							});
+
 
   	}
-  
+  	analyseResponse(data){
+  		if(data.status == 'success'){
+  			this.router.navigate(['/']);
+  		}
+  		else{
+  			alert(data.resop_text);
+  		}
+  	}
   	validateElement(event,elementName){
   	
 	  	if(elementName == 'firstname'){

@@ -71,11 +71,22 @@ export class NewContactComponent implements OnInit {
 
 		    });
 		    this.formData.user_token =  this.urlParam 
-	  		this.getDataService.postData('/users/usercontacts/new',this.formData).subscribe(res => this.myData = res);
-	  		this.router.navigate(['/users/'+this.urlParam+'/contacts']);
+	  		this.getDataService.postData('/users/usercontacts/new',this.formData).subscribe(
+  					(result) => {
+   							 this.analyseResponse(result);
+  							});
+
+	  		
   		}
   		
-  		//console.log(this.formData);
+  	}
+  	analyseResponse(data){
+  		if(data.status == 'success'){
+  			this.router.navigate(['/users/'+this.urlParam+'/contacts']);
+  		}
+  		else{
+  			alert(data.resop_text);
+  		}
   	}
   	isFormEmpty(){
   		if(this.phone1 == '' && this.phone2 =='' && this.phone3 =='' && this.phone4 =='' && this.email1=='' && this.email2 =='' && this.email3 =='' && this.email4 =='')

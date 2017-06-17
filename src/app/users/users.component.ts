@@ -11,9 +11,17 @@ export class UsersComponent implements OnInit {
   constructor(private getDataService:GetDataService) { }
   
   ngOnInit() {
-  	this.getDataService.getJsonData('/users').subscribe(res => this.myData = res);
+  	this.getDataService.getJsonData('/users').subscribe(res => this.analyseResponse(res));
 
   	
+  }
+  analyseResponse(response){
+  	if(response.status == 'success'){
+  		this.myData = response.data;
+  	}
+  	else{
+  		alert('Error in getting users');
+  	}
   }
 
 }

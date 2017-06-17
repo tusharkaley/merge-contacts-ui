@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import {MdInputModule} from '@angular/material';
 import {MdGridListModule} from '@angular/material';
 import {MdDialogModule} from '@angular/material';
+import {MdProgressSpinnerModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { GetDataService } from './get-data.service';
@@ -53,7 +54,8 @@ const appRoutes: Routes = [
     MdMenuModule,
     MdCardModule,
     MdToolbarModule,
-    MdIconModule
+    MdIconModule,
+    MdProgressSpinnerModule
   ],
    entryComponents: [
     DialogOverviewExampleDialog
