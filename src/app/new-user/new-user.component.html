@@ -33,7 +33,7 @@
     
      <md-input-container class="example-full-width">
         <input mdInput type="email" placeholder="Email" ng-model="emailid" name='emailid' [formControl]="userForm.controls['email']">
-         <div *ngIf="userForm.controls['email'].hasError('required') && userForm.controls['email'].touched" class="alert alert-danger">You must include an email id</div>
+         <div *ngIf="userForm.controls['email'].hasError('required') && userForm.controls['email'].touched" class="alert alert-danger">Email cannot be empty</div>
         
         <div *ngIf="userForm.controls['email'].hasError('pattern') && userForm.controls['email'].touched" class="alert alert-danger">Email id is invalid</div>
       
