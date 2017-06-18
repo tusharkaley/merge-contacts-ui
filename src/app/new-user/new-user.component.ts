@@ -18,7 +18,7 @@ export class NewUserComponent implements OnInit {
 		
 		this.userForm = fb.group({
 	      'firstName' : [null, Validators.required],
-	      'lastName': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(30)])],
+	      'lastName': [null, Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(30)])],
 	      'phone' : [null, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(12),Validators.pattern('[0-9]+')])],
 	      'email' : [null, Validators.compose([Validators.required,Validators.pattern('[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+..[a-zA-Z{1}.]+')])]
 	      
