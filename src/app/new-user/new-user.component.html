@@ -1,39 +1,49 @@
-<form class="example-form">
+<form [formGroup]="userForm" class="example-form" name="userForm" (ngSubmit)="submitForm(userForm.value)">
   <div layout="row">
     <div flex>
       <md-input-container class="example-full-width">
-        <textarea mdInput (blur)= "validateElement($event,'firstname')"  placeholder="First Name" [(ngModel)]="firstname" name='firstname'></textarea>
-        <span class="error-message" [hidden]="firstnameError">First Name is invalid</span>
+        <input mdInput  placeholder="First Name" ng-model="firstname" name='firstname' [formControl]="userForm.controls['firstName']">
+         <div *ngIf="userForm.controls['firstName'].hasError('required') && userForm.controls['firstName'].touched" class="alert alert-danger">First name cannot be empty</div>
       </md-input-container>
     
     
     <md-input-container class="example-full-width">
-      <textarea mdInput (blur)= "validateElement($event,'lastname')" placeholder="Last Name" [(ngModel)]="lastname" name='lastname'></textarea>
-      <span class="error-message" [hidden]="lastnameError">Last Name is invalid</span>
+        <input mdInput  placeholder="Last Name" ng-model="lastname" name='lastname' [formControl]="userForm.controls['lastName']">
+         <div *ngIf="userForm.controls['lastName'].hasError('required') && userForm.controls['lastName'].touched" class="alert alert-danger">Last name cannot be empty</div>
+        <div *ngIf="userForm.controls['lastName'].hasError('minlength') && userForm.controls['lastName'].touched" class="alert alert-danger">Last name must be at least 2 characters long.</div>
+        <div *ngIf="userForm.controls['lastName'].hasError('maxlength') && userForm.controls['lastName'].touched" class="alert alert-danger">Last name cannot exceed 30 characters.</div>
 
-    </md-input-container>
+      
+      </md-input-container>
     
   </div>
   </div>
 
   <div layout="row">
     <div flex>
-      <md-input-container class="example-full-width" >
-        <textarea mdInput (blur)= "validateElement($event,'phone')"  placeholder="Phone" [(ngModel)]="phone" name='phone'></textarea>
-        <span class="error-message" [hidden]="phoneError">Phone Number is invalid</span>
+       <md-input-container class="example-full-width">
+        <input mdInput  placeholder="Phone Number" ng-model="phone" name='phone' [formControl]="userForm.controls['phone']">
+         <div *ngIf="userForm.controls['phone'].hasError('required') && userForm.controls['phone'].touched" class="alert alert-danger">Phone number cannot be empty</div>
+        <div *ngIf="userForm.controls['phone'].hasError('minlength') && userForm.controls['phone'].touched" class="alert alert-danger">Phone number be at least 2 characters long.</div>
+        <div *ngIf="userForm.controls['phone'].hasError('maxlength') && userForm.controls['phone'].touched" class="alert alert-danger">Phone number cannot exceed 12 characters.</div>
+        <div *ngIf="userForm.controls['phone'].hasError('pattern') && userForm.controls['phone'].touched" class="alert alert-danger">Phone number should consist of only numbers</div>
+      
       </md-input-container>
       
     
-    <md-input-container class="example-full-width">
-      <textarea mdInput (blur)= "validateElement($event,'emailid')" placeholder="Email id" [(ngModel)]="emailid" name='emailid'></textarea>
-      <span class="error-message" [hidden]="emailError">Email id is invalid</span>
-    </md-input-container>
+     <md-input-container class="example-full-width">
+        <input mdInput type="email" placeholder="Email" ng-model="emailid" name='emailid' [formControl]="userForm.controls['email']">
+         <div *ngIf="userForm.controls['email'].hasError('required') && userForm.controls['email'].touched" class="alert alert-danger">You must include a last name.</div>
+        
+        <div *ngIf="userForm.controls['email'].hasError('pattern') && userForm.controls['email'].touched" class="alert alert-danger">Email id is invalid</div>
+      
+      </md-input-container>
     
   </div>
   </div>
  <div layout="row">
     <div flex class="submit-but">
-            <button [disabled]="buttonStatus" md-raised-button (click)="submitData($event)">Submit</button>
+            <button type="submit" [disabled]="!userForm.valid" md-raised-button >Submit</button>
 
     </div>
 </div>

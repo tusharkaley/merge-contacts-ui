@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule  } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {MdInputModule} from '@angular/material';
 import {MdGridListModule} from '@angular/material';
@@ -55,7 +55,8 @@ const appRoutes: Routes = [
     MdCardModule,
     MdToolbarModule,
     MdIconModule,
-    MdProgressSpinnerModule
+    MdProgressSpinnerModule,
+    ReactiveFormsModule
   ],
    entryComponents: [
     DialogOverviewExampleDialog
